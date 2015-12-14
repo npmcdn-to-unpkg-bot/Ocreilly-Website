@@ -57,10 +57,6 @@
     .list .website {
       margin-top: 5px;
     }
-    [id^="twitter-widget"] {
-      border: 1px rgb(137, 191, 224) solid;
-      border-radius: 3px;
-    }
   </style>
 </head>
 
@@ -210,7 +206,7 @@
         <ul class="social-buttons">
           {{#if EnableTweetButton}}
           <li class="social-button">
-            <a href="https://twitter.com/share" class="twitter-share-button twitter-share-buttoon" data-hashtags="{{Hashtag}}" data-url="{{BlogURL}}">Tweet</a>
+            <a href="https://twitter.com/share" class="twitter-share-button twitter-share-buttoon" data-count="vertical" data-hashtags="{{Hashtag}}" data-url="{{BlogURL}}">Tweet</a>
           </li>
           {{/if}} {{#if EnableFacebookButton}}
           <li class="social-button">
