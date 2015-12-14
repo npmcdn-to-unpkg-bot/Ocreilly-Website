@@ -1,0 +1,23 @@
+{
+  "name": "ocreilly",
+  "version": "0.0.1",
+  "description": "",
+  "main": "build.js",
+  "dependencies": {},
+  "devDependencies": {
+    "handlebars": "^4.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/post-internet/Ocreilly-Website.git"
+  },
+  "author": "3846masa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/post-internet/Ocreilly-Website/issues"
+  },
+  "homepage": "https://github.com/post-internet/Ocreilly-Website#readme"
+}

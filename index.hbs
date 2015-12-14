@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<!--
+  Theme: Tokusetsu 2
+  by @sanographix
+  http://www.sanographix.net
+  (c) 2013 Showkaku Sano
+  Free to use under the MIT license.
+  Please leave at least ONE credit link. Do not delete this box.
+-->
+
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://www.facebook.com/2008/fbml">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>{{CircleName}} - {{EventBoothNumber}} - {{Title}}</title>
+  <meta name="description" content="{{MetaDescription}}" />
+  <meta name="viewport" content="width=device-width">
+
+  <meta property="og:title" content="{{Title}} - {{EventBoothNumber}} - {{CircleName}}" />
+  <meta property="og:type" content="website" /> {{#if MainImageImage}}
+  <meta property="og:image" content="{{MainImage}}" /> {{/if}}
+  <meta property="og:site_name" content="{{Title}} - {{CircleName}}" />
+  <meta property="og:description" content="{{MetaDescription}}">
+
+  <link rel="stylesheet" href="//sanographix.github.io/public/tumblr/tokusetsu2/css/style.css" />
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700,300italic' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="{{Favicon}}">
+  <link rel="canonical" href="{{BlogURL}}" />
+  <meta property="og:url" content="{{BlogURL}}" />
+
+  <!--[if lt IE 9]>
+    <script src="//sanographix.github.io/public/tumblr/tokusetsu2/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{GoogleAnalyticsID}}']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <style>
+    .list .author {
+      color: #9da3af;
+      font-size: 90%;
+      margin-bottom: 10px;
+    }
+    .list .website {
+      margin-top: 5px;
+    }
+    [id^="twitter-widget"] {
+      border: 1px rgb(137, 191, 224) solid;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body class="blue">
+
+  {{#if EnableFacebookButton}}
+  <div id="fb-root"></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  {{/if}}
+
+  <header id="globalheader">
+    <div class="globalheader-inner content">
+      <h1>
+        <a href="/">{{Title}}</a>
+      </h1>
+      <p style="color: #9da3af;">
+        {{EventBoothNumber}} - {{CircleName}}
+      </p>
+      <nav class="header-nav">
+        <ul>
+          <li>
+            <a href="#tracklist">Sectionlist</a>
+          </li>
+          <li>
+            <a href="#staff">Staff</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ここから Index ページ -->
+
+  <section id="header-image">
+    <div class="header-image-content" style="background-image:url('{{MainImage}}');"></div>
+    <div class="header-image-mask"></div>
+  </section>
+
+  <div class="section-wrapper">
+
+    <section id="spec" class="section">
+      <div class="content">
+        {{#if Introduction}}
+        <h2>{{IntroductionHeading}}</h2>
+        <p class="introduction">
+          {{Introduction}}
+        </p>
+        {{/if}}
+        <div class="jacket-image">
+          {{#if JacketImage}}
+          <img src="{{JacketImage}}" alt="{{Title}}"> {{/if}} {{#unless JacketImage}}
+          <div class="jacket-noimage">
+            NOW PRINTING
+          </div>
+          {{/unless}}
+        </div>
+        <table class="table" id="spec-table">
+          <tbody>
+            <tr>
+              <th>タイトル</th>
+              <td>{{Title}}</td>
+            </tr>
+            <tr>
+              <th>サークル</th>
+              <td>{{#if CircleURL}}<a href="{{CircleURL}}" target="_blank">{{/if}}{{CircleName}}{{#if CircleURL}}</a>{{/if}}</td>
+            </tr>
+            <tr>
+              <th>仕様</th>
+              <td>{{Spec}}</td>
+            </tr>
+            <tr>
+              <th>頒布日</th>
+              <td>{{ReleaseDate}}</td>
+            </tr>
+            <tr>
+              <th>頒布場所</th>
+              <td>{{EventBoothNumber}}</td>
+            </tr>
+            <tr>
+              <th>価格</th>
+              <td>{{Price}}</td>
+            </tr>
+            {{#if Store01Name}}
+            <tr>
+              <th>購入</th>
+              <td>
+                <ul>
+                  <li>
+                    <a href="{{Store01URL}}" target="_blank">{{Store01Name}}</a>
+                  </li>
+                  {{/if}} {{#if Store02Name}}
+                  <li>
+                    <a href="{{Store02URL}}" target="_blank">{{Store02Name}}</a>
+                  </li>
+                  {{/if}} {{#if Store03Name}}
+                  <li>
+                    <a href="{{Store03URL}}" target="_blank">{{Store03Name}}</a>
+                  </li>
+                  {{/if}} {{#if Store04Name}}
+                  <li>
+                    <a href="{{Store04URL}}" target="_blank">{{Store04Name}}</a>
+                  </li>
+                  {{/if}} {{#if Store01Name}}
+                </ul>
+              </td>
+            </tr>
+            {{/if}}
+          </tbody>
+        </table>
+        {{#if Store01Name}}
+        <div class="available">
+          <h3>Available Now</h3>
+          <span class="available-btn btn btn-large">購入する</span>
+          {{/if}} {{#if Store02Name}}
+          <div class="available-dropdown">
+            <ul>
+              <li>
+                <a href="{{Store01URL}}" target="_blank">{{Store01Name}}</a>
+              </li>
+              <li>
+                <a href="{{Store02URL}}" target="_blank">{{Store02Name}}</a>
+              </li>
+              {{/if}} {{#if Store03Name}}
+              <li>
+                <a href="{{Store03URL}}" target="_blank">{{Store03Name}}</a>
+              </li>
+              {{/if}} {{#if Store04Name}}
+              <li>
+                <a href="{{Store04URL}}" target="_blank">{{Store04Name}}</a>
+              </li>
+              {{/if}} {{#if Store02Name}}
+            </ul>
+          </div>
+          {{/if}} {{#if Store01Name}}
+        </div>
+        {{/if}}
+
+        <ul class="social-buttons">
+          {{#if EnableTweetButton}}
+          <li class="social-button">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="{{BlogURL}}">Tweet</a>
+            <script>
+              ! function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                  p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = p + '://platform.twitter.com/widgets.js';
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              }(document, 'script', 'twitter-wjs');
+            </script>
+          </li>
+          {{/if}} {{#if EnableFacebookButton}}
+          <li class="social-button">
+            <div class="fb-like" data-url="{{BlogURL}}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+          </li>
+          {{/if}} {{#if EnableBookmarkButton}}
+          <li class="social-button">
+            <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard-balloon" title="このエントリーをはてなブックマークに追加">
+              <img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" />
+            </a>
+            <script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+          </li>
+          {{/if}} {{#if EnablePlus1Button}}
+          <li class="social-button">
+            <div class="g-plusone" data-size="medium"></div>
+            <script type="text/javascript">
+              window.___gcfg = {
+                lang: 'ja'
+              };
+
+              (function() {
+                var po = document.createElement('script');
+                po.type = 'text/javascript';
+                po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+          </li>
+          {{/if}}
+        </ul>
+
+      </div>
+    </section>
+
+    <section id="tracklist" class="section">
+      <div class="content">
+        <h3>Sectionlist</h3>
+        <ol class="list">
+          {{#if Section01Title}}
+          <li>
+            <span class="number">01</span>
+            <span class="title">{{Section01Title}}</span>
+            <span class="author">{{Section01Author}}</span>
+            <span class="meta">{{Section01Description}}</span>
+          </li>
+          {{/if}} {{#if Section02Title}}
+          <li>
+            <span class="number">02</span>
+            <span class="title">{{Section02Title}}</span>
+            <span class="author">{{Section02Author}}</span>
+            <span class="meta">{{Section02Description}}</span>
+          </li>
+          {{/if}} {{#if Section03Title}}
+          <li>
+            <span class="number">03</span>
+            <span class="title">{{Section03Title}}</span>
+            <span class="author">{{Section03Author}}</span>
+            <span class="meta">{{Section03Description}}</span>
+          </li>
+          {{/if}} {{#if Section04Title}}
+          <li>
+            <span class="number">04</span>
+            <span class="title">{{Section04Title}}</span>
+            <span class="author">{{Section04Author}}</span>
+            <span class="meta">{{Section04Description}}</span>
+          </li>
+          {{/if}} {{#if Section05Title}}
+          <li>
+            <span class="number">05</span>
+            <span class="title">{{Section05Title}}</span>
+            <span class="author">{{Section05Author}}</span>
+            <span class="meta">{{Section05Description}}</span>
+          </li>
+          {{/if}} {{#if Section06Title}}
+          <li>
+            <span class="number">06</span>
+            <span class="title">{{Section06Title}}</span>
+            <span class="author">{{Section06Author}}</span>
+            <span class="meta">{{Section06Description}}</span>
+          </li>
+          {{/if}} {{#if Section07Title}}
+          <li>
+            <span class="number">07</span>
+            <span class="title">{{Section07Title}}</span>
+            <span class="author">{{Section07Author}}</span>
+            <span class="meta">{{Section07Description}}</span>
+          </li>
+          {{/if}} {{#if Section08Title}}
+          <li>
+            <span class="number">08</span>
+            <span class="title">{{Section08Title}}</span>
+            <span class="author">{{Section08Author}}</span>
+            <span class="meta">{{Section08Description}}</span>
+          </li>
+          {{/if}} {{#if Section09Title}}
+          <li>
+            <span class="number">09</span>
+            <span class="title">{{Section09Title}}</span>
+            <span class="author">{{Section09Author}}</span>
+            <span class="meta">{{Section09Description}}</span>
+          </li>
+          {{/if}} {{#if Section10Title}}
+          <li>
+            <span class="number">10</span>
+            <span class="title">{{Section10Title}}</span>
+            <span class="author">{{Section10Author}}</span>
+            <span class="meta">{{Section10Description}}</span>
+          </li>
+          {{/if}}
+        </ol>
+      </div>
+    </section>
+
+    {{#if YoutubeEmbedCode}}
+    <section id="youtube" class="section">
+      <div class="content">
+        <h3>Youtube</h3>
+        <div id="youtube-iframe">
+          <iframe width="560" height="315" src="http://www.youtube.com/embed/{{YoutubeEmbedCode}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    {{/if}} {{#if NicovideoEmbedCode}}
+    <section id="nicovideo" class="section">
+      <h3>NIcoNico</h3>
+      <script type="text/javascript" src="http://ext.nicovideo.jp/thumb_watch/{{NicovideoEmbedCode}}"></script>
+    </section>
+    {{/if}} {{#if SoundcloudEmbedCode}}
+    <section id="soundcloud" class="section">
+      <div class="content">
+        <h3>Soundcloud</h3>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F{{SoundcloudEmbedCode}}&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>
+      </div>
+    </section>
+    {{/if}}
+
+    <section id="staff" class="section">
+      <div class="content">
+        <h3>Staff</h3>
+        <ul class="list">
+          {{#if Staff01Name}}
+          <li>
+            <span class="role">{{Staff01Role}}</span>
+            <span class="title">{{Staff01Name}}</span>
+            {{#if Staff01URL}}
+            <span class="website">
+              <a href="{{Staff01URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff02Name}}
+          <li>
+            <span class="role">{{Staff02Role}}</span>
+            <span class="title">{{Staff02Name}}</span>
+            {{#if Staff02URL}}
+            <span class="website">
+              <a href="{{Staff02URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff03Name}}
+          <li>
+            <span class="role">{{Staff03Role}}</span>
+            <span class="title">{{Staff03Name}}</span>
+            {{#if Staff03URL}}
+            <span class="website">
+              <a href="{{Staff03URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff04Name}}
+          <li>
+            <span class="role">{{Staff04Role}}</span>
+            <span class="title">{{Staff04Name}}</span>
+            {{#if Staff04URL}}
+            <span class="website">
+              <a href="{{Staff04URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff05Name}}
+          <li>
+            <span class="role">{{Staff05Role}}</span>
+            <span class="title">{{Staff05Name}}</span>
+            {{#if Staff05URL}}
+            <span class="website">
+              <a href="{{Staff05URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff06Name}}
+          <li>
+            <span class="role">{{Staff06Role}}</span>
+            <span class="title">{{Staff06Name}}</span>
+            {{#if Staff06URL}}
+            <span class="website">
+              <a href="{{Staff06URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff07Name}}
+          <li>
+            <span class="role">{{Staff07Role}}</span>
+            <span class="title">{{Staff07Name}}</span>
+            {{#if Staff07URL}}
+            <span class="website">
+              <a href="{{Staff07URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff08Name}}
+          <li>
+            <span class="role">{{Staff08Role}}</span>
+            <span class="title">{{Staff08Name}}</span>
+            {{#if Staff08URL}}
+            <span class="website">
+              <a href="{{Staff08URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff09Name}}
+          <li>
+            <span class="role">{{Staff09Role}}</span>
+            <span class="title">{{Staff09Name}}</span>
+            {{#if Staff09URL}}
+            <span class="website">
+              <a href="{{Staff09URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}} {{#if Staff10Name}}
+          <li>
+            <span class="role">{{Staff10Role}}</span>
+            <span class="title">{{Staff10Name}}</span>
+            {{#if Staff10URL}}
+            <span class="website">
+              <a href="{{Staff10URL}}" target="_blank">Twitter</a>
+            </span>
+            {{/if}}
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+    </section>
+
+    {{#if Banner1Image}}
+    <section id="banner" class="section">
+      <div class="content">
+        <h3>Banner</h3>
+        <span class="banner-box">
+          <img src="{{Banner1}}" alt="Banner1">
+        </span>
+        <span class="banner-box">
+          <img src="{{Banner2}}" alt="Banner2">
+        </span>
+      </div>
+    </section>
+    {{/if}}
+
+  </div>
+  <!-- END Index -->
+
+  <footer id="footer">
+    <div class="content">
+      <p>
+        ©{{CopyrightYears}} {{CircleName}}
+        <br/> {{FooterText}}
+      </p>
+      <p>
+        <!-- ↓ ここのリンク消さないでほしいっす -->
+        <a href="http://sanographix.github.io/tumblr/tokusetsu2/" target="_blank">Tokusetsu 2</a> theme designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a>&nbsp;&nbsp;/&nbsp;&nbsp;<a href="http://sanographix.github.io/tumblr/tokusetsu2/"
+        target="_blank">Install theme</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="//sanographix.github.io/public/tumblr/tokusetsu2/js/tokusetsu2-js.min.js"></script>
+
+</body>
+
+</html>
