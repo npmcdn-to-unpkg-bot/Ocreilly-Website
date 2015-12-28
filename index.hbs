@@ -57,6 +57,12 @@
     .list .website {
       margin-top: 5px;
     }
+    .store-list {
+      list-style-type: none;
+    }
+    .store-list img {
+      height: 3em;
+    }
   </style>
 </head>
 
@@ -150,11 +156,13 @@
             </tr>
             {{#if Store01Name}}
             <tr>
-              <th>購入</th>
+              <th>オンライン頒布</th>
               <td>
-                <ul>
+                <ul class="store-list">
                   <li>
-                    <a href="{{Store01URL}}" target="_blank">{{Store01Name}}</a>
+                    <a href="{{Store01URL}}" target="_blank">
+                      <img src="{{Store01Image}}" alt="{{Store01Name}}">
+                    </a>
                   </li>
                   {{/if}} {{#if Store02Name}}
                   <li>
@@ -175,33 +183,6 @@
             {{/if}}
           </tbody>
         </table>
-        {{#if Store01Name}}
-        <div class="available">
-          <h3>Available Now</h3>
-          <span class="available-btn btn btn-large">購入する</span>
-          {{/if}} {{#if Store02Name}}
-          <div class="available-dropdown">
-            <ul>
-              <li>
-                <a href="{{Store01URL}}" target="_blank">{{Store01Name}}</a>
-              </li>
-              <li>
-                <a href="{{Store02URL}}" target="_blank">{{Store02Name}}</a>
-              </li>
-              {{/if}} {{#if Store03Name}}
-              <li>
-                <a href="{{Store03URL}}" target="_blank">{{Store03Name}}</a>
-              </li>
-              {{/if}} {{#if Store04Name}}
-              <li>
-                <a href="{{Store04URL}}" target="_blank">{{Store04Name}}</a>
-              </li>
-              {{/if}} {{#if Store02Name}}
-            </ul>
-          </div>
-          {{/if}} {{#if Store01Name}}
-        </div>
-        {{/if}}
 
         <ul class="social-buttons">
           {{#if EnableTweetButton}}
