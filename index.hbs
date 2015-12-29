@@ -154,17 +154,28 @@
               <th>価格</th>
               <td>{{Price}}</td>
             </tr>
-            {{#if Store01Name}}
             <tr>
               <th>オンライン頒布</th>
               <td>
                 <ul class="store-list">
+                  {{#if Store01Name}}
                   <li>
+                    {{#if Store01Image}}
                     <a href="{{Store01URL}}" target="_blank">
                       <img src="{{Store01Image}}" alt="{{Store01Name}}">
                     </a>
+                    {{else}}
+                    <a href="{{Store01URL}}" target="_blank">{{Store01Name}}</a>
+                    {{/if}}
                   </li>
-                  {{/if}} {{#if Store02Name}}
+                  {{else}}
+                  <li>
+                    {{#if StoreTBD}} 調整中
+                    {{else}} 未定
+                    {{/if}}
+                  </li>
+                  {{/if}}
+                  {{#if Store02Name}}
                   <li>
                     <a href="{{Store02URL}}" target="_blank">{{Store02Name}}</a>
                   </li>
@@ -176,11 +187,10 @@
                   <li>
                     <a href="{{Store04URL}}" target="_blank">{{Store04Name}}</a>
                   </li>
-                  {{/if}} {{#if Store01Name}}
+                  {{/if}}
                 </ul>
               </td>
             </tr>
-            {{/if}}
           </tbody>
         </table>
 
