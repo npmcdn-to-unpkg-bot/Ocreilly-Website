@@ -196,6 +196,18 @@
           </tbody>
         </table>
 
+        {{#if IsVisibleDLButton}}
+        <div class="available">
+          <a href="{{DLURL}}" target="_blank">
+            <span class="available-btn btn btn-large">
+            {{#if DLText}} {{DLText}}
+            {{else}} ダウンロード
+            {{/if}}
+            </span>
+          </a>
+        </div>
+        {{/if}}
+
         <ul class="social-buttons">
           {{#if EnableTweetButton}}
           <li class="social-button">
