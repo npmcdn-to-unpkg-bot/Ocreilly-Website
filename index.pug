@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title= title
+    meta(name="description", content=description.trim())
+    meta(name="viewport", content="initial-scale=1.0")
+
+    meta(property="og:title", content=title)
+    meta(property="og:type", content="website")
+    if mainImage
+      meta(property="og:image" content=mainImage)
+    meta(property="og:site_name", content=title)
+    meta(property="og:description", content=description.trim())
+
+    meta(name="twitter:card", content="summary")
+    meta(name="twitter:site", content=twitterID)
+    meta(name="twitter:title", content=title)
+    meta(name="twitter:description", content=description.trim())
+    if mainImage
+      meta(property="og:image" content=mainImage)
+    
+    link(rel="stylesheet", href="//npmcdn.com/normalize.css@4.1.1")
+    link(rel="stylesheet", href="//npmcdn.com/semantic-ui-css@2.1.8/semantic.min.css")
+  body
+    .ui.middle.aligned.center.aligned.padded.grid(style="height: 100%;")
+      .column
+        h1 O'Creilly
+        p 技術書典 A-13
+        p
+          a.ui.button(href="/C89")
+            | Comiket 89
+          button.ui.animated.fade.button
+            .visible.content
+              | TechBookFest 2016
+            .hidden.content
+              | Coming Soon...
