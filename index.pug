@@ -22,6 +22,12 @@ html
     
     link(rel="stylesheet", href="//npmcdn.com/normalize.css@4.1.1")
     link(rel="stylesheet", href="//npmcdn.com/semantic-ui-css@2.1.8/semantic.min.css")
+      
+    script.
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-71704333-1', 'auto');
+      ga('send', 'pageview');
+    script(async, src="//www.google-analytics.com/analytics.js")
   body
     .ui.middle.aligned.center.aligned.padded.grid(style="height: 100%;")
       .column
