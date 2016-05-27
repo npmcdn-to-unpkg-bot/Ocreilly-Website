@@ -1,0 +1,20 @@
+build:
+  main_build:
+    image: node:6
+    environment:
+      GIT_USERNAME: drone.io
+      GIT_EMAIL: droneio@example.com
+    commands:
+      - cd $DRONE_DIR
+      - git submodule update --init --recursive
+      - git submodule foreach git pull origin master
+      - git config --global user.name $GIT_USERNAME
+      - git config --global user.email $GIT_EMAIL
+      - git commit -am '[ci skip] Update'
+deploy:
+  git_push:
+    branch: gh-pages
+    remote: https://github.com/post-internet/Ocreilly-Website.git
+    force: false
+    when:
+      branch: gh-pages
