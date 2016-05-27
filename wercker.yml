@@ -10,7 +10,7 @@ build:
     - script:
       name: update git submodules
       code: |
-        git submodule foreach git pull
+        git submodule foreach git pull origin master
 deploy:
   steps:
     - git-push:
