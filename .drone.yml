@@ -1,22 +1,16 @@
 build:
   main_build:
     image: node:6
-    commands:
-      - cd $DRONE_DIR
-      - git submodule update --init --recursive
-      - git submodule foreach git pull origin master
-  git_commit:
-    image: node:6
-    when:
-      change: true
     environment:
       GIT_USERNAME: drone.io
       GIT_EMAIL: droneio@example.com
     commands:
       - cd $DRONE_DIR
+      - git submodule update --init --recursive
+      - git submodule foreach git pull origin master
       - git config --global user.name $GIT_USERNAME
       - git config --global user.email $GIT_EMAIL
-      - git commit -am '[ci skip] Update'
+      - git commit -am '[ci skip] Update' || sh -c 'exit 0'
 deploy:
   git_push:
     branch: gh-pages
@@ -24,4 +18,3 @@ deploy:
     force: false
     when:
       branch: gh-pages
-      change: true
