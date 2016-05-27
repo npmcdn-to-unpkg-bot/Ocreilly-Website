@@ -1,5 +1,3 @@
-events:
-  - trigger
 build:
   main_build:
     image: node:6
