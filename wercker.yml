@@ -1,0 +1,20 @@
+box: debian
+build:
+  steps:
+    - install-packages:
+      packages: git
+    - script:
+      name: initialize git submodules
+      code: |
+        git submodule update --init --recursive
+    - script:
+      name: update git submodules
+      code: |
+        git submodule foreach git pull
+deploy:
+  steps:
+    - git-push:
+      gh_oauth: $GH_TOKEN
+      gh_pages: true
+      gh_pages_domain: ocreilly.meiji-ncc.tech
+      basedir: build
