@@ -11,6 +11,8 @@ build:
       - git config --global user.name $GIT_USERNAME
       - git config --global user.email $GIT_EMAIL
       - git commit -am '[ci skip] Update' || sh -c 'exit 0'
+    when:
+      event: []
 deploy:
   git_push:
     branch: gh-pages
