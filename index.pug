@@ -19,10 +19,10 @@ html
     meta(name="twitter:description", content=description.trim())
     if mainImage
       meta(property="og:image" content=mainImage)
-    
+
     link(rel="stylesheet", href="//npmcdn.com/normalize.css@4.1.1")
     link(rel="stylesheet", href="//npmcdn.com/semantic-ui-css@2.1.8/semantic.min.css")
-      
+
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -41,8 +41,5 @@ html
         p
           a.ui.button(href="/C89")
             | Comiket 89
-          button.ui.animated.fade.button
-            .visible.content
-              | TechBookFest 2016
-            .hidden.content
-              | Coming Soon...
+          a.ui.button(href="/TeckBookFest2016")
+            | TechBookFest 2016
