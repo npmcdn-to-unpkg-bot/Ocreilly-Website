@@ -1,3 +1,6 @@
+clone:
+  depth: 5
+  recursive: true
 build:
   main_build:
     image: node:6
@@ -6,12 +9,10 @@ build:
       GIT_EMAIL: droneio@example.com
     commands:
       - cd $DRONE_DIR
-      - git reset --hard HEAD@{1}
-      - git submodule update --init --recursive
       - git submodule foreach git pull origin master
       - git config --global user.name $GIT_USERNAME
       - git config --global user.email $GIT_EMAIL
-      - git commit -am '[ci skip] Update' || sh -c 'exit 0'
+      - git commit -am 'Update' || sh -c 'exit 0'
 deploy:
   git_push:
     branch: gh-pages
