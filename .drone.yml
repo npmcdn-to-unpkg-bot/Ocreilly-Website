@@ -18,7 +18,7 @@ build:
       - npm i --silent
       - npm run build
       - git add -A
-      - git commit --allow-empty -m "[ci skip] Build $CI_COMMIT"
+      - git commit --allow-empty -m "Build $CI_COMMIT"
     when:
       branch: master
   update_submodule:
@@ -33,6 +33,8 @@ build:
       - git submodule foreach git pull origin release
       - git add -A
       - git commit --allow-empty -m '[ci skip] Update submodules'
+    when:
+      branch: gh-pages
 deploy:
   git_push:
     branch: gh-pages
