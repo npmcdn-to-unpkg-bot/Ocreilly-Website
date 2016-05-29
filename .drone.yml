@@ -8,13 +8,33 @@ build:
       GIT_USERNAME: drone.io
       GIT_EMAIL: droneio@example.com
     commands:
-      - cd $DRONE_DIR
-      - git submodule foreach git pull origin master
       - git config --global user.name $GIT_USERNAME
       - git config --global user.email $GIT_EMAIL
-      - git commit -am 'Update' || sh -c 'exit 0'
+      - cd $DRONE_DIR
+      - git fetch --no-tags --depth=10 origin gh-pages:gh-pages
+      - git checkout gh-pages
+      - git merge --squash master || ( git checkout --theirs . && git add -A )
+      - git commit --allow-empty -m "[ci skip] Merge $CI_COMMIT"
+      - npm i --silent
+      - npm run build
+      - git add -A
+      - git commit --allow-empty -m "[ci skip] Build $CI_COMMIT"
+    when:
+      branch: master
+  update_submodule:
+    image: node:6
+    environment:
+      GIT_USERNAME: drone.io
+      GIT_EMAIL: droneio@example.com
+    commands:
+      - git config --global user.name $GIT_USERNAME
+      - git config --global user.email $GIT_EMAIL
+      - cd $DRONE_DIR
+      - git submodule foreach git pull origin release
+      - git add -A
+      - git commit --allow-empty -m '[ci skip] Update submodules'
 deploy:
   git_push:
     branch: gh-pages
     remote: https://github.com/post-internet/Ocreilly-Website.git
-    force: false
+    force: true
